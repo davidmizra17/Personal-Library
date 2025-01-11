@@ -10,7 +10,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.personallibrary.ui.theme.PersonalLibraryTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +24,21 @@ class MainActivity : ComponentActivity() {
         setContent {
             PersonalLibraryTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    NavHost(
+                        navController = rememberNavController(),
+                        startDestination = Screen.Listing.route,
                         modifier = Modifier.padding(innerPadding)
-                    )
+                    ){
+                        composable(Screen.Listado.route){
+                            ListingScreen()
+                        }
+                        composable(Screen.Detail.route){
+                            DetailScreen()
+                        }
+                        composable(Screen.Stats.route){
+                            StatsScreen()
+                        }
+                    }
                 }
             }
         }

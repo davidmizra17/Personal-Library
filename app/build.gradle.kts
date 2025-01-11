@@ -85,8 +85,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
 //    Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.0")
+    val nav_version = "2.8.5"
+
+    implementation("androidx.navigation:navigation-compose:$nav_version")
 
 //    Material Design
     implementation("androidx.compose.material3:material3:1.2.0-alpha08")
