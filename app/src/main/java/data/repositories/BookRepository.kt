@@ -3,8 +3,9 @@ package data.repositories
 import data.entities.BookDao
 import data.entities.BookEntity
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class BookRepository(private val bookDao: BookDao){
+class BookRepository @Inject constructor(private val bookDao: BookDao){
 
     //get all books reactively
     fun getBooks(): Flow<List<BookEntity>> = bookDao.getBooks()
@@ -14,5 +15,5 @@ class BookRepository(private val bookDao: BookDao){
 
     suspend fun insertBook(book: BookEntity) = bookDao.insertBook(book)
 
-    suspend fun getBook(book: BookEntity) = bookDao.getBook(book.name)
+    suspend fun getBook(book: BookEntity) = bookDao.getBook(book.title)
 }
