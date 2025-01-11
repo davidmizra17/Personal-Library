@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.personallibrary.screens.ListingScreen
 import com.example.personallibrary.ui.theme.PersonalLibraryTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,18 +27,18 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
                         navController = rememberNavController(),
-                        startDestination = Screen.Listing.route,
+                        startDestination = com.example.personallibrary.Screen.Listing,
                         modifier = Modifier.padding(innerPadding)
                     ){
-                        composable(Screen.Listado.route){
+                        composable(com.example.personallibrary.Screen.Listing.route){
                             ListingScreen()
                         }
-                        composable(Screen.Detail.route){
-                            DetailScreen()
-                        }
-                        composable(Screen.Stats.route){
-                            StatsScreen()
-                        }
+//                        composable(com.example.personallibrary.Screen.Detail.route){
+//                            DetailScreen()
+//                        }
+//                        composable(com.example.personallibrary.Screen.Stats.route){
+//                            StatsScreen()
+//                        }
                     }
                 }
             }
